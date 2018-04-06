@@ -1,25 +1,33 @@
 
 $(document).ready(function () {
+  $(function() {
+var randomuserAPI = 'https://randomuser.me/api/?results=12';
 
-$(function() {
 
+  function displayPhotos(data) {
+       var photoHTML = '<ul>';
+      // var userInfo = '<ul class="user">';
+       $.each( data.results, function (i, photo) {
+         photoHTML += '<li class="pic">';
+         photoHTML += '<a href="' + photo.picture.large + ' " class="image">';
+         photoHTML += '<img src="' + photo.picture.large + '"></a></li>';
+         photoHTML += '<li class="userInfo2">';
+         photoHTML += '<p class="caps">' + photo.name.first  + " "+ photo.name.last + '</li>';
 
- var results2 = [];
-
- $.getJSON('https://randomuser.me/api/', function(data) {
-     $.each(data.results, function(i, f) {
-        var person =  "<li>" + f.name.first + "</li>" +
-          f.name.last  + "<li>" + f.email + "</li>" + "<li>" + f.location.city + "</li>"
-         $(person).appendTo(".item");
-
+         photoHTML += '<p>' + photo.email + '</li>';
+         photoHTML += '<p class="location">' + photo.location.city + '</li>';
+       });
+       photoHTML += '</ul>';
+      // userInfo += '</ul>';
+       $('#photos').append(photoHTML);
+       $('#photos').append(photoHTML);
+     }
+     $.getJSON(randomuserAPI, displayPhotos);
    });
-
  });
 
-});
-});
 
-
+/*
 var settings = {
   "async": true,
   "crossDomain": true,
@@ -32,11 +40,11 @@ var settings = {
 $(document).ready(function () {
       var url ='https://randomuser.me/api/?=&inc=name,picture,phone,email,login,location,dob,cell&nat=us';
       $.getJSON(url, function(data) {
-var photoHTML = '.images';
+var photoHTML = ('.images');
       $.each( data.results, function (i, photo) {
         photoHTML += '<img src="' + photo.picture.large+ '" "'+photo+'">';
 
-    
+
       });
 
       $('.images').append(photoHTML);
@@ -44,7 +52,11 @@ var photoHTML = '.images';
 
   //  $.getJSON('https://randomuser.me/api/', displayPhotos);
    });
+/*
 
+
+
+/*
    //step 1 and 2,
    var xhr = new XMLHttpRequest();
    xhr.onreadystatechange = function () {

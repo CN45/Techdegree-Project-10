@@ -10,15 +10,17 @@ var randomuserAPI = 'https://randomuser.me/api/?results=12';
          photoHTML += '<li class="pic">';
          photoHTML += '<a href="' + photo.picture.large + ' " class="image">';
          photoHTML += '<img src="' + photo.picture.large + '"></a></li>';
-         photoHTML += '<li class="userInfo2">';
+         photoHTML += '<li class="pic">';
          photoHTML += '<p class="caps">' + photo.name.first  + " "+ photo.name.last + '</li>';
          photoHTML += '<p>' + photo.email + '</li>';
          photoHTML += '<p class="location">' + photo.location.city + '</li>';
        });
-       photoHTML += '</ul>';
+        photoHTML += '</ul>';
        $('#photos').append(photoHTML);
        $('#photos').append(photoHTML);
+
      }
+
      $.getJSON(randomuserAPI, displayPhotos);
    });
  });

@@ -4,10 +4,11 @@ $(document).ready(function() {
 
 
     function displayPhotos(data) {
-      var photoHTML = '<ul class="line">';
+      var photoHTML = '<ul class="box">';
 
       $.each(data.results, function(i, photo) {
-        photoHTML += '<div class="surround">';
+
+          photoHTML += '<div class="surround">';
         photoHTML += '<li class="line">';
         photoHTML += '<a href="' + photo.picture.large + ' " class="image">';
         photoHTML += '<img src="' + photo.picture.large + '"></a></li>';
@@ -17,13 +18,14 @@ $(document).ready(function() {
         photoHTML += '<p>' + photo.email + '</li>';
         photoHTML += '<li class="pic">';
         photoHTML += '<p class="location">' + photo.location.city + '</li>';
-        photoHTML += '</div>';
+    photoHTML += '</div>';
+
       });
 
 
       photoHTML += '</ul>';
       $('#photos').append(photoHTML);
-      $('#photos').append(photoHTML);
+
 
     }
 

@@ -24,8 +24,8 @@ $(document).ready(function() {
 var modalAPI = 'https://randomuser.me/api/';
 
     function displayPhotos(data) {
-      var photoHTML = '<ul class="box">';
-
+      var photoHTML = '<ul id="box">';
+var modalHTML = '<ul class="modal-content">';
       $.each(data.results, function(i, photo) {
 
         photoHTML += '<div class="surround">';
@@ -40,13 +40,38 @@ var modalAPI = 'https://randomuser.me/api/';
         photoHTML += '<p class="location">' + photo.location.city + '</li>';
         photoHTML += '</div>';
 
+        modalHTML += '<div class"mod">';
+        modalHTML += '<li class="modalLine">';
+        modalHTML += '<a href="' + photo.picture.large + ' " class="picModal">';
+        modalHTML += '<img class="picModal" src="' + photo.picture.large + '"></a></li>';
+        modalHTML += '<li class="picModal">';
+
+        modalHTML += '<p class="center">' + photo.name.first + " " + photo.name.last + '</li>';
+        modalHTML += '<li class="picModal">';
+        modalHTML += '<p>' + photo.email + '</li>';
+        modalHTML += '<p class="center">' + photo.location.city + '</li>';
+        modalHTML += '<p class="center">' + photo.phone + '</li>';
+        modalHTML += '<p class="center">' + photo.location.street + '</li>';
+        modalHTML += '<p class="center">' + photo.location.city + '</li>';
+        modalHTML += '<p class="center">' + photo.location.state + '</li>';
+        modalHTML += '<p class="center">' + photo.location.postcode + '</li>';
+
+        modalHTML += '<p class="center">' + '<p>Birthday</p>' + photo.dob + '</li>';
+
+
+
+
+        modalHTML += '</div>';
+
       });
 
 
       photoHTML += '</ul>';
       $('#photos').append(photoHTML);
 
-
+      $('.pic').on('click','li', function(){
+          $('.modal-content').append(modalHTML);
+});
     }
 
     $.getJSON(randomuserAPI, displayPhotos);

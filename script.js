@@ -20,16 +20,15 @@ $(document).ready(function() {
 
 */
   let members;
-  membersGlobal = data.results;
-  members. ($.each(members, function(i, photo) {
-    
+
+
 
   $(function() {
-    var randomuserAPI = 'https://randomuser.me/api/?results=12';
+var randomuserAPI = 'https://randomuser.me/api/?results=12';
 var modalAPI = 'https://randomuser.me/api/';
 
     function displayPhotos(data) {
-
+      members = data.results;
 
       var selectedMembersIndex = [];
       var photoHTML = '<ul id="box">';

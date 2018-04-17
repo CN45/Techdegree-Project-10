@@ -19,6 +19,10 @@ $(document).ready(function() {
      window.addEventListener("click", windowOnClick);
 
 */
+  let members;
+  membersGlobal = data.results;
+  members. ($.each(members, function(i, photo) {
+    
 
   $(function() {
     var randomuserAPI = 'https://randomuser.me/api/?results=12';
@@ -26,7 +30,7 @@ var modalAPI = 'https://randomuser.me/api/';
 
     function displayPhotos(data) {
 
-      var membersGlobal = document.getElementById('photos');
+
       var selectedMembersIndex = [];
       var photoHTML = '<ul id="box">';
 var modalHTML = '<ul class="modal-content">';

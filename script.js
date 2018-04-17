@@ -33,7 +33,7 @@ var modalAPI = 'https://randomuser.me/api/';
       var selectedMembersIndex = [];
       var photoHTML = '<ul id="box">';
 var modalHTML = '<ul class="modal-content">';
-      $.each(data.results, function(i, photo) {
+      $.each(members, function(i, photo) {
 
         photoHTML += '<div class="surround">';
         photoHTML += '<li class="line">';

@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-  var modal = document.querySelector(".modal");
+  /*var modal = document.querySelector(".modal");
      var container = document.querySelector(".container");
      var closeButton = document.querySelector(".close-button");
 
@@ -18,12 +18,16 @@ $(document).ready(function() {
      closeButton.addEventListener("click", toggleModal);
      window.addEventListener("click", windowOnClick);
 
+*/
 
   $(function() {
     var randomuserAPI = 'https://randomuser.me/api/?results=12';
 var modalAPI = 'https://randomuser.me/api/';
 
     function displayPhotos(data) {
+
+      var membersGlobal = document.getElementById('photos');
+      var selectedMembersIndex = [];
       var photoHTML = '<ul id="box">';
 var modalHTML = '<ul class="modal-content">';
       $.each(data.results, function(i, photo) {
@@ -66,13 +70,19 @@ var modalHTML = '<ul class="modal-content">';
       });
 
 
-      photoHTML += '</ul>';
+
+ photoHTML += '</ul>';
       $('#photos').append(photoHTML);
+
 
       $('.pic').on('click','li', function(){
           $('.modal-content').append(modalHTML);
+
+
 });
-    }
+}
+
+
 
     $.getJSON(randomuserAPI, displayPhotos);
 
@@ -124,48 +134,3 @@ var modalHTML = '<ul class="modal-content">';
 
   });
 });
-//modal data
-/*
-$(function() {
-  var modalAPI = 'https://randomuser.me/api/';
-
-
-  function displayPhotos(data) {
-    var modalHTML = '<ul class="modal-content">';
-
-    $.each(data.results, function(i, photo) {
-
-      modalHTML += '<div>';
-      modalHTML += '<li class="line">';
-      modalHTML += '<a href="' + photo.picture.large + ' " class="image">';
-      modalHTML += '<img src="' + photo.picture.large + '"></a></li>';
-      modalHTML += '<li class="pic">';
-      modalHTML += '<p class="caps">' + photo.name.first + " " + photo.name.last + '</li>';
-      modalHTML += '<li class="pic">';
-      modalHTML += '<p>' + photo.email + '</li>';
-      modalHTML += '<p class="location">' + photo.location.city + '</li>';
-      modalHTML += '<p class="location">' + photo.phone + '</li>';
-      modalHTML += '<p class="location">' + photo.location.street + '</li>';
-      modalHTML += '<p class="location">' + photo.location.city + '</li>';
-      modalHTML += '<p class="location">' + photo.location.state + '</li>';
-      modalHTML += '<p class="location">' + photo.location.postcode + '</li>';
-
-      modalHTML += '<p class="location">' + '<p>Birthday</p>' + photo.dob + '</li>';
-
-      modalHTML += '<li class="pic">';
-
-
-      modalHTML += '</div>';
-
-    });
-
-
-    modalHTML += '</ul>';
-    $('.modal-content').append(modalHTML);
-
-
-  }
-
-  $.getJSON(modalAPI, displayPhotos);
-});
-*/

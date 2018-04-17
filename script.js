@@ -1,43 +1,54 @@
 $(document).ready(function() {
 
-  /*var modal = document.querySelector(".modal");
-     var container = document.querySelector(".container");
-     var closeButton = document.querySelector(".close-button");
 
-     function toggleModal() {
-         modal.classList.toggle("show-modal");
-     }
-
-     function windowOnClick(event) {
-         if (event.target === modal) {
-             toggleModal();
-         }
-     }
-
-    container.addEventListener("click", toggleModal);
-     closeButton.addEventListener("click", toggleModal);
-     window.addEventListener("click", windowOnClick);
-
-*/
   let members;
+  let selectedMemberIndex = 0;
+let modalContainer = document.querySelectorAll(".surround");
+let key = 0;
 
+function displayModalForUser(member){
 
+  modalHTML += '<div class"surround" key ="${key}">';
+  modalHTML += '<li class="modalLine">';
+  modalHTML += '<a href="' + member.picture.large + ' " class="picModal">';
+  modalHTML += '<img class="picModal" src="' + member.picture.large + '"></a></li>';
+  modalHTML += '<li class="picModal">';
+
+  modalHTML += '<p class="center">' + member.name.first + " " + photo.name.last + '</li>';
+  modalHTML += '<li class="picModal">';
+  modalHTML += '<p>' + member.email + '</li>';
+  modalHTML += '<p class="center">' + member.location.city + '</li>';
+  modalHTML += '<p class="center">' + member.phone + '</li>';
+  modalHTML += '<p class="center">' + member.location.street + '</li>';
+  modalHTML += '<p class="center">' + member.location.city + '</li>';
+  modalHTML += '<p class="center">' + member.location.state + '</li>';
+  modalHTML += '<p class="center">' + member.location.postcode + '</li>';
+  modalHTML += '<p class="center">' + '<p>Birthday</p>' + photo.dob + '</li>';
+
+  modalHTML += '</div>';
+}
+
+$('.surround').on('click', (e) => {
+  let memberIndex = e.target.getAttribute('key');
+  displayModalForUser(members[memberIndex]);
+});
+}
 
   $(function() {
-var randomuserAPI = 'https://randomuser.me/api/?results=12';
-var modalAPI = 'https://randomuser.me/api/';
+    var randomuserAPI = 'https://randomuser.me/api/?results=12';
+    var modalAPI = 'https://randomuser.me/api/';
 
     function displayPhotos(data) {
       members = data.results;
 
-      var selectedMembersIndex = [];
+
       var photoHTML = '<ul id="box">';
-var modalHTML = '<ul class="modal-content">';
+      var modalHTML = '<ul class="modal-content">';
       $.each(members, function(i, photo) {
 
         photoHTML += '<div class="surround">';
         photoHTML += '<li class="line">';
-        photoHTML += '<a href="' + photo.picture.large + ' " class="image">';
+
         photoHTML += '<img src="' + photo.picture.large + '"></a></li>';
         photoHTML += '<li class="pic">';
         photoHTML += '<p class="caps">' + photo.name.first + " " + photo.name.last + '</li>';
@@ -74,16 +85,16 @@ var modalHTML = '<ul class="modal-content">';
 
 
 
- photoHTML += '</ul>';
+      photoHTML += '</ul>';
       $('#photos').append(photoHTML);
 
 
-      $('.pic').on('click','li', function(){
-          $('.modal-content').append(modalHTML);
+      $('.pic').on('click', 'li', function() {
+        $('.modal-content').append(modalHTML);
 
 
-});
-}
+      });
+    }
 
 
 

@@ -32,7 +32,7 @@ $('.surround').on('click', (e) => {
   let memberIndex = e.target.getAttribute('key');
   displayModalForUser(members[memberIndex]);
 });
-}
+
 
   $(function() {
     var randomuserAPI = 'https://randomuser.me/api/?results=12';

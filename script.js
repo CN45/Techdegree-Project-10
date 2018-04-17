@@ -3,7 +3,7 @@ $(document).ready(function() {
 
   let members;
   let selectedMemberIndex = 0;
-let modalContainer = document.querySelectorAll(".surround");
+let modalContainer = document.querySelector('.modal-content');
 let key = 0;
 
 function displayModalForUser(member){
@@ -95,13 +95,12 @@ $('.surround').on('click', (e) => {
 
 
       });
-    }
+}
 
 
-/*
+
     $.getJSON(randomuserAPI, displayPhotos);
-
-    $(function() {
+/*    $(function() {
       var modalAPI = 'https://randomuser.me/api/';
 
 
@@ -139,12 +138,12 @@ $('.surround').on('click', (e) => {
         modalHTML += '</ul>';
         $('.modal-content').append(modalHTML);
 
-*/
+
       }
 
       $.getJSON(modalAPI, displayPhotos);
     });
-
+*/
 
 
   });

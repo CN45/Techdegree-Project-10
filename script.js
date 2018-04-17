@@ -7,6 +7,7 @@ let modalContainer = document.querySelectorAll(".surround");
 let key = 0;
 
 function displayModalForUser(member){
+modalContainer.innerHTML = modalHTML;
 
   modalHTML += '<div class"surround" key ="${key}">';
   modalHTML += '<li class="modalLine">';
@@ -97,7 +98,7 @@ $('.surround').on('click', (e) => {
     }
 
 
-
+/*
     $.getJSON(randomuserAPI, displayPhotos);
 
     $(function() {
@@ -138,7 +139,7 @@ $('.surround').on('click', (e) => {
         modalHTML += '</ul>';
         $('.modal-content').append(modalHTML);
 
-
+*/
       }
 
       $.getJSON(modalAPI, displayPhotos);

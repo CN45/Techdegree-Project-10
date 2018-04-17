@@ -6,6 +6,7 @@ $(document).ready(function() {
 let modalContainer = document.querySelector('.modal-content');
 let key = 0;
 
+
 function displayModalForUser(member){
 modalContainer.innerHTML = modalHTML;
 
@@ -28,7 +29,7 @@ modalContainer.innerHTML = modalHTML;
 
   modalHTML += '</div>';
 }
-
+$('.modal').hide();//hide the modal on page load
 $('.surround').on('click', (e) => {
   let memberIndex = e.target.getAttribute('key');
   displayModalForUser(members[memberIndex]);

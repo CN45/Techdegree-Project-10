@@ -39,15 +39,17 @@
         transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
     }
 	.center {
-    display: inline;
+    display: block;
 
   }
-
+.inline {
+  display: inline;
+}
 .modal-line {
   display: block;
 
 }
-#photo .imageModal {
+.imageModal {
   display: block;
 
 }

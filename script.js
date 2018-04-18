@@ -4,6 +4,7 @@ let members;
 let selectedMemberIndex = 0;
 let modalContainer = document.querySelector('.modal-content');
 let key = 0;
+const span = document.getElementById("#close");
 
 function displayModalForUser(member){
 let modalHTML;
@@ -59,6 +60,11 @@ $('.modal').hide();//hide the modal on page load
         let memberIndex = e.currentTarget.getAttribute('key');
         displayModalForUser(members[memberIndex]);
         $('.modal').show();
+        $('#close').show();
+        $("#close").on("click", function(e){
+            $('.modal').hide();
+        });
+
       });
 
 }

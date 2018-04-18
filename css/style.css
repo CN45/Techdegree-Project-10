@@ -25,7 +25,13 @@
         width: 24rem;
         border-radius: 0.5rem;
     }
-
+    #close:hover {
+      content: "✖";
+      border: 1px solid gray;
+      background-color:#eee;
+      padding:0.5em;
+      cursor: pointer;
+    }
     .show-modal {
         opacity: 1;
         visibility: visible;

@@ -56,7 +56,7 @@ $('.modal').hide();//hide the modal on page load
       $('#photos').append(photoHTML);
 
       $('.surround').on('click', (e) => {
-        let memberIndex = e.target.getAttribute('key');
+        let memberIndex = e.currentTarget.getAttribute('key');
         displayModalForUser(members[memberIndex]);
         $('.modal').show();
       });

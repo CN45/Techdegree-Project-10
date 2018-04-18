@@ -1,22 +1,18 @@
 $(document).ready(function() {
 
-
 let members;
 let selectedMemberIndex = 0;
 let modalContainer = document.querySelector('.modal-content');
 let key = 0;
 
-
 function displayModalForUser(member){
-modalContainer.innerHTML = modalHTML;
+let modalHTML;
 
   modalHTML += '<div class"surround">';
   modalHTML += '<li class="modalLine">';
-
   modalHTML += '<img class="picModal" src="' + member.picture.large + '"></a></li>';
   modalHTML += '<li class="picModal">';
-
-  modalHTML += '<p class="center">' + member.name.first + " " + photo.name.last + '</li>';
+  modalHTML += '<p class="center">' + member.name.first + " " + member.name.last + '</li>';
   modalHTML += '<li class="picModal">';
   modalHTML += '<p>' + member.email + '</li>';
   modalHTML += '<p class="center">' + member.location.city + '</li>';
@@ -25,15 +21,11 @@ modalContainer.innerHTML = modalHTML;
   modalHTML += '<p class="center">' + member.location.city + '</li>';
   modalHTML += '<p class="center">' + member.location.state + '</li>';
   modalHTML += '<p class="center">' + member.location.postcode + '</li>';
-  modalHTML += '<p class="center">' + '<p>Birthday</p>' + photo.dob + '</li>';
-
+  modalHTML += '<p class="center">' + '<p>Birthday</p>' + member.dob + '</li>';
   modalHTML += '</div>';
+  modalContainer.innerHTML = modalHTML;
 }
 $('.modal').hide();//hide the modal on page load
-$('.surround').on('click', (e) => {
-  let memberIndex = e.target.getAttribute('key');
-  displayModalForUser(members[memberIndex]);
-});
 
 
   $(function() {
@@ -47,10 +39,8 @@ $('.surround').on('click', (e) => {
       var photoHTML = '<ul id="box">';
       var modalHTML = '<ul class="modal-content">';
       $.each(members, function(i, photo) {
-
-        photoHTML += `<div class"surround" key="${key}">`;
+        photoHTML += `<div class="surround" key="${key}">`;
         photoHTML += '<li class="line">';
-
         photoHTML += '<img src="' + photo.picture.large + '"></a></li>';
         photoHTML += '<li class="pic">';
         photoHTML += '<p class="caps">' + photo.name.first + " " + photo.name.last + '</li>';
@@ -59,42 +49,19 @@ $('.surround').on('click', (e) => {
         photoHTML += '<li class="pic">';
         photoHTML += '<p class="location">' + photo.location.city + '</li>';
         photoHTML += '</div>';
-
-        modalHTML += '<div class"mod">';
-        modalHTML += '<li class="modalLine">';
-        modalHTML += '<a href="' + photo.picture.large + ' " class="picModal">';
-        modalHTML += '<img class="picModal" src="' + photo.picture.large + '"></a></li>';
-        modalHTML += '<li class="picModal">';
-
-        modalHTML += '<p class="center">' + photo.name.first + " " + photo.name.last + '</li>';
-        modalHTML += '<li class="picModal">';
-        modalHTML += '<p>' + photo.email + '</li>';
-        modalHTML += '<p class="center">' + photo.location.city + '</li>';
-        modalHTML += '<p class="center">' + photo.phone + '</li>';
-        modalHTML += '<p class="center">' + photo.location.street + '</li>';
-        modalHTML += '<p class="center">' + photo.location.city + '</li>';
-        modalHTML += '<p class="center">' + photo.location.state + '</li>';
-        modalHTML += '<p class="center">' + photo.location.postcode + '</li>';
-
-        modalHTML += '<p class="center">' + '<p>Birthday</p>' + photo.dob + '</li>';
-
-
-
-
-        modalHTML += '</div>';
-
+        key ++;
       });
-
-
 
       photoHTML += '</ul>';
       $('#photos').append(photoHTML);
 
-
+      $('.surround').on('click', (e) => {
+        let memberIndex = e.target.getAttribute('key');
+        displayModalForUser(members[memberIndex]);
+        $('.modal').show();
+      });
 
 }
-
-
 
     $.getJSON(randomuserAPI, displayPhotos);
 /*    $(function() {

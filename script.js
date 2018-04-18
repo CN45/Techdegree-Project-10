@@ -1,8 +1,8 @@
 $(document).ready(function() {
 
 
-  let members;
-  let selectedMemberIndex = 0;
+let members;
+let selectedMemberIndex = 0;
 let modalContainer = document.querySelector('.modal-content');
 let key = 0;
 
@@ -12,7 +12,7 @@ modalContainer.innerHTML = modalHTML;
 
   modalHTML += '<div class"surround" key ="${key}">';
   modalHTML += '<li class="modalLine">';
-  modalHTML += '<a href="' + member.picture.large + ' " class="picModal">';
+
   modalHTML += '<img class="picModal" src="' + member.picture.large + '"></a></li>';
   modalHTML += '<li class="picModal">';
 

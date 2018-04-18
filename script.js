@@ -10,7 +10,7 @@ let key = 0;
 function displayModalForUser(member){
 modalContainer.innerHTML = modalHTML;
 
-  modalHTML += '<div class"surround" key ="${key}">';
+  modalHTML += '<div class"surround">';
   modalHTML += '<li class="modalLine">';
 
   modalHTML += '<img class="picModal" src="' + member.picture.large + '"></a></li>';
@@ -48,7 +48,7 @@ $('.surround').on('click', (e) => {
       var modalHTML = '<ul class="modal-content">';
       $.each(members, function(i, photo) {
 
-        photoHTML += '<div class="surround">';
+        photoHTML += `<div class"surround" key="${key}">`;
         photoHTML += '<li class="line">';
 
         photoHTML += '<img src="' + photo.picture.large + '"></a></li>';
@@ -91,11 +91,7 @@ $('.surround').on('click', (e) => {
       $('#photos').append(photoHTML);
 
 
-      $('.pic').on('click', 'li', function() {
-        $('.modal-content').append(modalHTML);
 
-
-      });
 }
 
 

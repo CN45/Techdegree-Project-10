@@ -11,7 +11,7 @@ let modalHTML;
 
   modalHTML += '<div class"surround">';
   modalHTML += '<li class="modalLine">';
-  modalHTML += '<img class="picModal" src="' + member.picture.large + '"></a></li>';
+  modalHTML += '<img class="picModal" src="' + member.picture.large + '"></li>';
   modalHTML += '<li class="picModal">';
   modalHTML += '<p class="center">' + member.name.first + " " + member.name.last + '</li>';
   modalHTML += '<li class="picModal">';
@@ -22,7 +22,7 @@ let modalHTML;
   modalHTML += '<p class="center">' + member.location.city + '</li>';
   modalHTML += '<p class="center">' + member.location.state + '</li>';
   modalHTML += '<p class="center">' + member.location.postcode + '</li>';
-  modalHTML += '<p class="center">' + '<p>Birthday</p>' + member.dob + '</li>';
+  modalHTML += '<p class="center">' + '<p>Birthday</p>' + new Date(member.dob).toLocaleDateString() + '</li>';
   modalHTML += '</div>';
   modalContainer.innerHTML = modalHTML;
 }

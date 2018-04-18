@@ -59,7 +59,7 @@
 }
 
 .modalLine {
-display: block;
+display: inline-block;
   margin: 0;
   text-align: center;
 }

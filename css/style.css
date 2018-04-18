@@ -58,9 +58,10 @@
   display: inline;
 }
 
-li.modalLine {
+.modalLine {
 display: block;
   margin: 0;
+  text-align: center;
 }
 
 .imageModal {
@@ -68,6 +69,7 @@ display: block;
 }
 
 .picModal {
+  text-align: center;
 display: block;
   float: none;
   padding: 0;

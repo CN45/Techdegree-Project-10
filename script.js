@@ -9,7 +9,7 @@ const span = document.getElementById("#close");
 function displayModalForUser(member){
 let modalHTML;
 
-  modalHTML += '<div class"surround">';
+  modalHTML += '<div class="surround">';
   modalHTML += '<li class="modalLine">';
   modalHTML += '<img class="picModal" src="' + member.picture.large + '"></li>';
   modalHTML += '<li class="picModal">';
@@ -20,11 +20,11 @@ let modalHTML;
   modalHTML += '<p class="center">' + member.phone + '</li>';
   modalHTML += '<p class="inline">' + member.location.street + '</li>';
   modalHTML += '<p class="inline">' + member.location.city + " " + '</li>';
-  modalHTML += '<p class="inline">' + member.location.state + '</li>';
+  modalHTML += '<p class="inline">' + member.location.state + " " + '</li>';
   modalHTML += '<p class="inline">' + member.location.postcode + '</li>';
   modalHTML += '<p class="center">' + '<p>Birthday</p>' + new Date(member.dob).toLocaleDateString() + '</li>';
   modalHTML += '</div>';
-  modalContainer.innerHTML = modalHTML;
+  modalContainer.innerHTML += modalHTML;
 }
 $('.modal').hide();//hide the modal on page load
 
@@ -63,6 +63,7 @@ $('.modal').hide();//hide the modal on page load
         $('#close').show();
         $("#close").on("click", function(e){
             $('.modal').hide();
+
         });
 
       });

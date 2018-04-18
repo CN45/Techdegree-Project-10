@@ -9,7 +9,7 @@ const span = document.getElementById("#close");
 function displayModalForUser(member){
 let modalHTML;
 
-  modalHTML += '<div class="surround">';
+  modalHTML += '<div class="mobileDiv">';
   modalHTML += '<li class="modalLine">';
   modalHTML += '<img class="picModal" src="' + member.picture.large + '"></li>';
   modalHTML += '<li class="picModal">';
@@ -62,6 +62,7 @@ $('.modal').hide();//hide the modal on page load
         $('.modal').show();
         $('#close').show();
         $("#close").on("click", function(e){
+            $('.modalDiv').remove();
             $('.modal').hide();
 
         });

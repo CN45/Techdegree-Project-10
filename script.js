@@ -7,9 +7,9 @@ let key = 0;
 const span = document.getElementById("#close");
 
 function displayModalForUser(member){
-let modalHTML;
+let modalHTML = "";
 
-  modalHTML += '<div class="mobileDiv">';
+  modalHTML += '<div class="modalDiv">';
   modalHTML += '<li class="modalLine">';
   modalHTML += '<img class="picModal" src="' + member.picture.large + '"></li>';
   modalHTML += '<li class="picModal">';
